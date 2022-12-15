@@ -37,5 +37,19 @@ namespace SistemaVendas.Repository
 
             return vendedores;
         }
+
+        public Vendedor AtualizarVendedor(Vendedor vendedor)
+        {
+            _context.Vendedores.Update(vendedor);
+            _context.SaveChanges();
+
+            return vendedor;
+        }
+
+        public void DeletarVendedor(Vendedor vendedor)
+        {
+            _context.Vendedores.Remove(vendedor);
+            _context.SaveChanges();
+        }
     }
 }
