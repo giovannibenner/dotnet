@@ -8,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<VendasContext>(options => 
                         options.UseSqlServer(builder.Configuration.GetConnectionString("ConexaoPadrao")));
 
+builder.Services.AddScoped<ClienteRepository>();
 builder.Services.AddScoped<VendedorRepository>();
 
 builder.Services.AddControllers();
