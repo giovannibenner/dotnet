@@ -46,6 +46,12 @@ namespace SistemaVendas.Repository
             return cliente;
         }
 
+        public void AtualizarSenha(Cliente vendedor, AtualizarSenhaClienteDTO dto)
+        {
+            vendedor.Senha = dto.Senha;
+            AtualizarCliente(vendedor);
+        }
+
         public void DeletarCliente(Cliente cliente)
         {
             _context.Clientes.Remove(cliente);
