@@ -39,7 +39,21 @@ namespace SistemaVendas.Controllers
                 return Ok(clienteDTO);
             }
             else
-                return NotFound(new { Mensagem = "cliente não encontrado"});
+                return NotFound(new { Mensagem = "Cliente não encontrado"});
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Deletar(int id)
+        {
+            var cliente = _repository.ObterPorId(id);
+
+            if(cliente is not null)
+            {
+                _repository.DeletarCliente(cliente);
+                return NoContent();
+            }
+            else
+                return NotFound(new { Mensagem = "Cliente não encontrado"});
         }
     }
 }
