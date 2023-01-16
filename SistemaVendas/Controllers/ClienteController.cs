@@ -42,6 +42,13 @@ namespace SistemaVendas.Controllers
                 return NotFound(new { Mensagem = "Cliente não encontrado"});
         }
 
+        [HttpGet("obterpornome/{nome}")]
+        public IActionResult ObterPorNome(string nome)
+        {
+            var clientes = _repository.ObterPorNome(nome);
+            return Ok(clientes);
+        }
+
         [HttpDelete("{id}")]
         public IActionResult Deletar(int id)
         {
