@@ -38,6 +38,14 @@ namespace SistemaVendas.Repository
             return clientes;
         }
 
+        public Cliente AtualizarCliente(Cliente cliente)
+        {
+            _context.Clientes.Update(cliente);
+            _context.SaveChanges();
+
+            return cliente;
+        }
+
         public void DeletarCliente(Cliente cliente)
         {
             _context.Clientes.Remove(cliente);

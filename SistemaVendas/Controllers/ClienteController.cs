@@ -49,6 +49,22 @@ namespace SistemaVendas.Controllers
             return Ok(clientes);
         }
 
+        [HttpPut("{id}")]
+        public IActionResult Atualizar(int id, AtualizarClienteDTO dto)
+        {
+            var cliente = _repository.ObterPorId(id);
+
+            if(cliente is not null)
+            {
+                cliente.MapearAtualizarClienteDTO(dto);
+                _repository.AtualizarCliente(cliente);
+
+                return Ok(cliente);
+            }
+            else
+                return NotFound(new { Mensagem = "Vendedor não encontrado"});
+        }
+
         [HttpDelete("{id}")]
         public IActionResult Deletar(int id)
         {
