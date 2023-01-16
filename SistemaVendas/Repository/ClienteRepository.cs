@@ -21,5 +21,11 @@ namespace SistemaVendas.Repository
             _context.Clientes.Add(cliente);
             _context.SaveChanges();
         }
+
+        public Cliente ObterPorId(int id)
+        {
+            var cliente = _context.Clientes.Find(id);
+            return cliente;
+        }
     }
 }

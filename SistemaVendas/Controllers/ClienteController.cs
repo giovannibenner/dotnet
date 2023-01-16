@@ -27,5 +27,19 @@ namespace SistemaVendas.Controllers
             _repository.Cadastrar(cliente);
             return Ok();
         }
+
+        [HttpGet("{id}")]
+        public IActionResult ObterPorId(int id)
+        {
+            var cliente = _repository.ObterPorId(id);
+            
+            if(cliente is not null)
+            {
+                var clienteDTO = new ObterClienteDTO(cliente);
+                return Ok(clienteDTO);
+            }
+            else
+                return NotFound(new { Mensagem = "cliente não encontrado"});
+        }
     }
 }
