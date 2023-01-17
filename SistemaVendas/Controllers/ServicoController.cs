@@ -53,5 +53,19 @@ namespace SistemaVendas.Controllers
             else
                 return NotFound(new { Mensagem = "Servico não encontrado"});
         }
+
+        [HttpDelete("{id}")]
+        public IActionResult Deletar(int id)
+        {
+            var servico = _repository.ObterPorId(id);
+
+            if(servico is not null)
+            {
+                _repository.DeletarServico(servico);
+                return NoContent();
+            }
+            else
+                return NotFound(new { Mensagem = "Servico não encontrado"});
+        }
     }
 }
