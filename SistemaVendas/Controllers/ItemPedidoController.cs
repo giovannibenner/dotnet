@@ -50,5 +50,19 @@ namespace SistemaVendas.Controllers
             else
                 return NotFound(new { Mensagem = "ItemPedido não encontrado"});
         }
+
+        [HttpDelete("{id}")]
+        public IActionResult Deletar(int id)
+        {
+            var itemPedido = _repository.ObterPorId(id);
+
+            if(itemPedido is not null)
+            {
+                _repository.DeletarItemPedido(itemPedido);
+                return NoContent();
+            }
+            else
+                return NotFound(new { Mensagem = "ItemPedido não encontrado"});
+        }
     }
 }
