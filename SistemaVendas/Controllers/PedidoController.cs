@@ -46,6 +46,13 @@ namespace SistemaVendas.Controllers
             return Ok(pedidos);
         }
 
+        [HttpGet("obterclienteid/{id}")]
+        public IActionResult ObterPorClienteId(int id)
+        {
+            var pedidos = _repository.ObterPorClienteId(id);
+            return Ok(pedidos);
+        }
+
         [HttpGet("listar")]
         public IActionResult ListarPedidos()
         {
