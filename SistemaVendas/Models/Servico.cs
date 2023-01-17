@@ -17,5 +17,11 @@ namespace SistemaVendas.Models
             Nome = dto.Nome;
             Descricao = dto.Descricao;
         }
+
+        public void MapearAtualizarServicoDTO(AtualizarServicoDTO dto)
+        {
+            Nome = dto.Nome;
+            Descricao = dto.Descricao;
+        }
     }
 }

@@ -28,5 +28,13 @@ namespace SistemaVendas.Repository
             var servico = _context.Servicos.Find(id);
             return servico;
         }
+
+        public Servico AtualizarServico(Servico servico)
+        {
+            _context.Servicos.Update(servico);
+            _context.SaveChanges();
+
+            return servico;
+        }
     }
 }

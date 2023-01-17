@@ -37,5 +37,21 @@ namespace SistemaVendas.Controllers
             else
                 return NotFound(new { Mensagem = "Servico não encontrado"});
         }
+
+        [HttpPut("{id}")]
+        public IActionResult Atualizar(int id, AtualizarServicoDTO dto)
+        {
+            var servico = _repository.ObterPorId(id);
+
+            if(servico is not null)
+            {
+                servico.MapearAtualizarServicoDTO(dto);
+                _repository.AtualizarServico(servico);
+
+                return Ok(servico);
+            }
+            else
+                return NotFound(new { Mensagem = "Servico não encontrado"});
+        }
     }
 }
