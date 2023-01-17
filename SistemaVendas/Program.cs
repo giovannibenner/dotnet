@@ -11,6 +11,7 @@ builder.Services.AddDbContext<VendasContext>(options =>
 builder.Services.AddScoped<ClienteRepository>();
 builder.Services.AddScoped<VendedorRepository>();
 builder.Services.AddScoped<PedidoRepository>();
+builder.Services.AddScoped<ServicoRepository>();
 
 
 builder.Services.AddControllers();
