@@ -29,5 +29,13 @@ namespace SistemaVendas.Repository
                                          .FirstOrDefault(x => x.Id == id);
             return itemPedido;
         }
+
+        public ItemPedido AtualizarPedido(ItemPedido itemPedido)
+        {
+            _context.ItensPedido.Update(itemPedido);
+            _context.SaveChanges();
+
+            return itemPedido;
+        }
     }
 }
