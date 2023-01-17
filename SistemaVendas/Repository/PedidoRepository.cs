@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using SistemaVendas.Context;
 using SistemaVendas.Models;
+using SistemaVendas.Dto;
 
 namespace SistemaVendas.Repository
 {
@@ -31,6 +32,15 @@ namespace SistemaVendas.Repository
                                          .Include(x => x.Cliente)
                                          .FirstOrDefault(x => x.Id == id);
             return pedido;
+        }
+
+        public List<ObterPedidoDTO> ListarPedidos()
+        {
+            var pedidos = _context.Pedidos
+                                          .Select(x => new ObterPedidoDTO(x))
+                                          .ToList();
+
+            return pedidos;
         }
 
         public void DeletarPedido(Pedido pedido)
