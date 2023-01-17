@@ -12,6 +12,7 @@ builder.Services.AddScoped<ClienteRepository>();
 builder.Services.AddScoped<VendedorRepository>();
 builder.Services.AddScoped<PedidoRepository>();
 builder.Services.AddScoped<ServicoRepository>();
+builder.Services.AddScoped<ItemPedidoRepository>();
 
 
 builder.Services.AddControllers();
