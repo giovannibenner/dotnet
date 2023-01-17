@@ -43,6 +43,14 @@ namespace SistemaVendas.Repository
             return pedidos;
         }
 
+        public Pedido AtualizarPedido(Pedido pedido)
+        {
+            _context.Pedidos.Update(pedido);
+            _context.SaveChanges();
+
+            return pedido;
+        }
+
         public void DeletarPedido(Pedido pedido)
         {
             _context.Pedidos.Remove(pedido);
