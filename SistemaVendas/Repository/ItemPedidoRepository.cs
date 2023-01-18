@@ -58,6 +58,12 @@ namespace SistemaVendas.Repository
             AtualizarItemPedido(itemPedido);
         }
 
+        public void AtualizarQuantidade(ItemPedido itemPedido, AtualizarItemPedidoQuantidadeDTO dto)
+        {
+            itemPedido.Quantidade = dto.Quantidade;
+            AtualizarItemPedido(itemPedido);
+        }
+
         public void DeletarItemPedido(ItemPedido itemPedido){
             _context.ItensPedido.Remove(itemPedido);
             _context.SaveChanges();
