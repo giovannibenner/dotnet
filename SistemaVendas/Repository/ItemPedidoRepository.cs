@@ -38,12 +38,18 @@ namespace SistemaVendas.Repository
             return servicos;
         }
 
-        public ItemPedido AtualizarPedido(ItemPedido itemPedido)
+        public ItemPedido AtualizarItemPedido(ItemPedido itemPedido)
         {
             _context.ItensPedido.Update(itemPedido);
             _context.SaveChanges();
 
             return itemPedido;
+        }
+
+        public void AtualizarPedidoId(ItemPedido itemPedido, AtualizarItemPedidoPedidoIdDTO dto)
+        {
+            itemPedido.PedidoId = dto.PedidoId;
+            AtualizarItemPedido(itemPedido);
         }
 
         public void DeletarItemPedido(ItemPedido itemPedido){

@@ -50,8 +50,22 @@ namespace SistemaVendas.Controllers
             if(itemPedido is not null)
             {
                 itemPedido.MapearAtualizarItemPedidoDTO(dto);
-                _repository.AtualizarPedido(itemPedido);
+                _repository.AtualizarItemPedido(itemPedido);
 
+                return Ok(itemPedido);
+            }
+            else
+                return NotFound(new { Mensagem = "ItemPedido não encontrado"});
+        }
+
+        [HttpPatch("atualizarpedido/{id}")]
+        public IActionResult AtualizarPedidoId(int id, AtualizarItemPedidoPedidoIdDTO dto)
+        {
+            var itemPedido = _repository.ObterPorId(id);
+
+            if(itemPedido is not null)
+            {
+                _repository.AtualizarPedidoId(itemPedido, dto);
                 return Ok(itemPedido);
             }
             else
