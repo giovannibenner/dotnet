@@ -68,6 +68,12 @@ namespace SistemaVendas.Repository
             vendedor.Senha = dto.Senha;
             AtualizarVendedor(vendedor);
         }
+
+        public void AtualizarNome(Vendedor vendedor, AtualizarNomeVendedorDTO dto)
+        {
+            vendedor.Nome = dto.Nome;
+            AtualizarVendedor(vendedor);
+        }
         
         public void DeletarVendedor(Vendedor vendedor)
         {

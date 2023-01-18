@@ -92,6 +92,20 @@ namespace SistemaVendas.Controllers
             else
                 return NotFound(new { Mensagem = "Vendedor não encontrado"});
         }
+
+        [HttpPatch("atualizarnome/{id}")]
+        public IActionResult AtualizarNome(int id, AtualizarNomeVendedorDTO dto)
+        {
+            var vendedor = _repository.ObterPorId(id);
+
+            if(vendedor is not null)
+            {
+                _repository.AtualizarNome(vendedor, dto);
+                return Ok(vendedor);
+            }
+            else
+                return NotFound(new { Mensagem = "Vendedor não encontrado"});
+        }
         
         [HttpDelete("{id}")]
         public IActionResult Deletar(int id)
