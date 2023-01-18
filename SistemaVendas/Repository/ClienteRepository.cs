@@ -38,6 +38,15 @@ namespace SistemaVendas.Repository
             return clientes;
         }
 
+        public List<ObterClienteDTO> ObterPorLogin(string nome)
+        {
+            var clientes = _context.Clientes.Where(x => x.Login.Contains(nome))
+                                                .Select(x => new ObterClienteDTO(x))
+                                                .ToList();
+
+            return clientes;
+        }
+
         public Cliente AtualizarCliente(Cliente cliente)
         {
             _context.Clientes.Update(cliente);
