@@ -35,6 +35,13 @@ namespace SistemaVendas.Controllers
                 return NotFound(new { Mensagem = "ItemPedido não encontrado"});
         }
 
+        [HttpGet("listar")]
+        public IActionResult ListarTodos()
+        {
+            var itensPedido = _repository.ListarTodos();
+            return Ok(itensPedido);
+        }
+
         [HttpPut("{id}")]
         public IActionResult Atualizar(int id, AtualizarItemPedidoDTO dto)
         {

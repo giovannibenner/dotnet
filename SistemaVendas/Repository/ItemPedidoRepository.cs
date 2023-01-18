@@ -25,9 +25,17 @@ namespace SistemaVendas.Repository
         public ItemPedido ObterPorId(int id)
         {
             var itemPedido = _context.ItensPedido.Include(x => x.Pedido)
-                                         .Include(x => x.Servico)
-                                         .FirstOrDefault(x => x.Id == id);
+                                                 .Include(x => x.Servico)
+                                                 .FirstOrDefault(x => x.Id == id);
             return itemPedido;
+        }
+
+        public List<ObterItemPedidoDTO> ListarTodos()
+        {
+            var servicos = _context.ItensPedido.Select(x => new ObterItemPedidoDTO(x))
+                                                .ToList();
+
+            return servicos;
         }
 
         public ItemPedido AtualizarPedido(ItemPedido itemPedido)
