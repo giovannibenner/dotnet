@@ -38,6 +38,13 @@ namespace SistemaVendas.Controllers
                 return NotFound(new { Mensagem = "Servico não encontrado"});
         }
 
+        [HttpGet("obterpordescricao/{text}")]
+        public IActionResult ObterPorDescricao(string text)
+        {
+            var servicos = _repository.ObterPorDescricao(text);
+            return Ok(servicos);
+        }
+
         [HttpPut("{id}")]
         public IActionResult Atualizar(int id, AtualizarServicoDTO dto)
         {

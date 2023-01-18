@@ -29,6 +29,15 @@ namespace SistemaVendas.Repository
             return servico;
         }
 
+        public List<ObterServicoDTO> ObterPorDescricao(string text)
+        {
+            var clientes = _context.Servicos.Where(x => x.Descricao.Contains(text))
+                                                .Select(x => new ObterServicoDTO(x))
+                                                .ToList();
+
+            return clientes;
+        }
+
         public Servico AtualizarServico(Servico servico)
         {
             _context.Servicos.Update(servico);
