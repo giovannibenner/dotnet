@@ -56,6 +56,13 @@ namespace SistemaVendas.Controllers
             return Ok(clientes);
         }
 
+        [HttpGet("listartodos")]
+        public IActionResult ListarTodos()
+        {
+            var clientes = _repository.ListarTodos();
+            return Ok(clientes);
+        }
+
         [HttpPut("{id}")]
         public IActionResult Atualizar(int id, AtualizarClienteDTO dto)
         {

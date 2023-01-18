@@ -47,6 +47,14 @@ namespace SistemaVendas.Repository
             return clientes;
         }
 
+        public List<ObterClienteDTO> ListarTodos()
+        {
+            var clientes = _context.Clientes.Select(x => new ObterClienteDTO(x))
+                                            .ToList();
+
+            return clientes;
+        }
+
         public Cliente AtualizarCliente(Cliente cliente)
         {
             _context.Clientes.Update(cliente);
