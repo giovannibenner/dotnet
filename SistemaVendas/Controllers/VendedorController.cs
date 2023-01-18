@@ -79,7 +79,7 @@ namespace SistemaVendas.Controllers
                 return NotFound(new { Mensagem = "Vendedor não encontrado"});
         }
 
-        [HttpPatch("{id}")]
+        [HttpPatch("atualizarsenha/{id}")]
         public IActionResult AtualizarSenha(int id, AtualizarSenhaVendedorDTO dto)
         {
             var vendedor = _repository.ObterPorId(id);

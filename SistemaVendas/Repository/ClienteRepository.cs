@@ -63,10 +63,16 @@ namespace SistemaVendas.Repository
             return cliente;
         }
 
-        public void AtualizarSenha(Cliente vendedor, AtualizarSenhaClienteDTO dto)
+        public void AtualizarSenha(Cliente cliente, AtualizarSenhaClienteDTO dto)
         {
-            vendedor.Senha = dto.Senha;
-            AtualizarCliente(vendedor);
+            cliente.Senha = dto.Senha;
+            AtualizarCliente(cliente);
+        }
+
+        public void AtualizarNome(Cliente cliente, AtualizarNomeClienteDTO dto)
+        {
+            cliente.Nome = dto.Nome;
+            AtualizarCliente(cliente);
         }
 
         public void DeletarCliente(Cliente cliente)
