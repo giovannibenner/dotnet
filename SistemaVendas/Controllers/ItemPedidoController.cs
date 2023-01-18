@@ -72,6 +72,20 @@ namespace SistemaVendas.Controllers
                 return NotFound(new { Mensagem = "ItemPedido não encontrado"});
         }
 
+        [HttpPatch("atualizarservico/{id}")]
+        public IActionResult AtualizarServicoId(int id, AtualizarItemPedidoServicoIdDTO dto)
+        {
+            var itemPedido = _repository.ObterPorId(id);
+
+            if(itemPedido is not null)
+            {
+                _repository.AtualizarServicoId(itemPedido, dto);
+                return Ok(itemPedido);
+            }
+            else
+                return NotFound(new { Mensagem = "ItemPedido não encontrado"});
+        }
+
         [HttpDelete("{id}")]
         public IActionResult Deletar(int id)
         {
