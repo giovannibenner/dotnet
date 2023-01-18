@@ -38,6 +38,23 @@ namespace SistemaVendas.Repository
             return vendedores;
         }
 
+        public List<ObterVendedorDTO> ObterPorLogin(string nome)
+        {
+            var vendedores = _context.Vendedores.Where(x => x.Login.Contains(nome))
+                                                .Select(x => new ObterVendedorDTO(x))
+                                                .ToList();
+
+            return vendedores;
+        }
+
+        public List<ObterVendedorDTO> ListarTodos()
+        {
+            var vendedores = _context.Vendedores.Select(x => new ObterVendedorDTO(x))
+                                                .ToList();
+
+            return vendedores;
+        }
+
         public Vendedor AtualizarVendedor(Vendedor vendedor)
         {
             _context.Vendedores.Update(vendedor);

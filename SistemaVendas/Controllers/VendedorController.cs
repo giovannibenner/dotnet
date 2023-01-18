@@ -49,6 +49,20 @@ namespace SistemaVendas.Controllers
             return Ok(vendedores);
         }
 
+        [HttpGet("obterporlogin/{nome}")]
+        public IActionResult ObterPorLogin(string nome)
+        {
+            var vendedores = _repository.ObterPorLogin(nome);
+            return Ok(vendedores);
+        }
+
+        [HttpGet("listartodos")]
+        public IActionResult ListarTodos()
+        {
+            var vendedores = _repository.ListarTodos();
+            return Ok(vendedores);
+        }
+
         [HttpPut("{id}")]
         public IActionResult Atualizar(int id, AtualizarVendedorDTO dto)
         {

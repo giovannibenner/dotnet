@@ -54,8 +54,7 @@ namespace SistemaVendas.Repository
 
         public List<ObterPedidoDTO> ListarPedidos()
         {
-            var pedidos = _context.Pedidos
-                                          .Select(x => new ObterPedidoDTO(x))
+            var pedidos = _context.Pedidos.Select(x => new ObterPedidoDTO(x))
                                           .ToList();
 
             return pedidos;
