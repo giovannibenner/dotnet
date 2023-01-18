@@ -64,6 +64,12 @@ namespace SistemaVendas.Repository
             AtualizarItemPedido(itemPedido);
         }
 
+        public void AtualizarValor(ItemPedido itemPedido, AtualizarItemPedidoValorDTO dto)
+        {
+            itemPedido.Valor = dto.Valor;
+            AtualizarItemPedido(itemPedido);
+        }
+
         public void DeletarItemPedido(ItemPedido itemPedido){
             _context.ItensPedido.Remove(itemPedido);
             _context.SaveChanges();
