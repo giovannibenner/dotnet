@@ -68,6 +68,12 @@ namespace SistemaVendas.Repository
             return pedido;
         }
 
+        public void AtualizarVendedorId(Pedido pedido, AtualizarPedidoVendedorIdDTO dto)
+        {
+            pedido.VendedorId = dto.VendedorId;
+            AtualizarPedido(pedido);
+        }
+
         public void DeletarPedido(Pedido pedido)
         {
             _context.Pedidos.Remove(pedido);
